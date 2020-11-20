@@ -1,0 +1,47 @@
+
+    h1 {
+      color:blue}
+      h2 {
+      background:blue}
+      p span { font-size: 200%}
+
+      
+    #special { background: yellow}
+    .alert { border: 1px solid gray}
+    .alert.stop {background: red}
+    .alert.go {background: green}
+
+
+
+
+
+    
+    .container >:first-child {font-size:150%}
+.container >:first-child::first-line {color:red}
+a { color: orange }
+a:visited { color: green } 
+a:hover { text-decoration: none }
+
+table tr:nth-child(2n+1) { background: white}
+table tr:nth-child(2n+2) { background: #333; color: white}
+
+
+
+
+
+
+h2 + p {color: red}
+
+.list >li {list-style-type: none; border-bottom: 1px solid gray}
+.list >li:nth-child(2) li {list-style-type: disc}
+
+
+
+
+
+a {
+  border: 5px solid grey;
+}
+a[title] {border-color: pink}
+a[href*=contact] {border-color: orange}
+a[href^=https] {border-color: green}

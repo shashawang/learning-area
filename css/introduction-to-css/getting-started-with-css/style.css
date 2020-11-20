@@ -1,0 +1,50 @@
+
+p, li {
+  color: green;
+}
+li {
+  list-style-type: square;
+}
+/* .special {
+  color: orange;
+  font-weight: bold;
+} */
+li.special {
+  color: orange;
+  font-weight: bold;
+}
+li em {
+  color: red;
+}
+h5 + p {
+  font-size: 10%;
+}
+p span {
+  color: red;
+}
+a:link {
+  color: pink;
+}
+
+a:visited {
+  color: green;
+}
+a:hover {
+  text-decoration: none;
+}
+body h5 + p .special {
+  color: yellow;
+  background-color: black;
+  padding: 5px;
+}
+
+.outer {
+  border: 5px solid black;
+}
+
+.box {
+  padding: 10px;
+  width: calc(100% - 30px);
+  background-color: rebeccapurple;
+  color: white;
+}
