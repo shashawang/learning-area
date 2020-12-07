@@ -44,6 +44,51 @@
     <script>
 
       // 开始编写 JavaScript 代码
+      const guessField = document.querySelector('.guessField')
+      const guessSubmit = document.querySelector('.guessSubmit')
+      const guesses = document.querySelector('.guesses')
+      const lastResult = document.querySelector('.lastResult')
+
+      let radomNum = Math.floor(Math.random() * 100)
+      let count = 0
+
+      guessSubmit.addEventListener('click', () => {
+        if (count < 10) {
+          if (Number(guessField.value) === radomNum) {
+            guesses.textContent = '猜对啦'
+            // guessSubmit 添加禁用属性
+            guessSubmit.disable = true
+            anotherGame()
+          } else if (Number(guessField.value) < radomNum) {
+            guesses.textContent = '猜低啦'
+          } else if (Number(guessField.value) > radomNum) {
+            guesses.textContent = '猜高啦'
+          }
+          guessField.value = ''
+          count++
+        } else {
+          anotherGame()
+        }
+      });
+      function anotherGame() {
+        guesses.textContent = '游戏结束'
+        // guessField 添加禁用属性
+        guessField.disable = true
+        guessSubmit.disable = true
+        // 添加再来一局的按钮
+        let btn = document.createElement('button')
+        btn.textContent = '再来一局'
+        document.body.appendChild(btn)
+        btn.onclick = () => {
+          guesses.textContent = ''
+          guessField.disable = false
+          guessSubmit.disable = false
+          // 再来一局按钮隐藏
+          // btn.display
+          btn.parentNode.removeChild(btn)
+        }
+      }
+      console.log('count', count, radomNum);
 
     </script>
   </body>

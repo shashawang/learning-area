@@ -11,19 +11,19 @@
     </style>
   </head>
   <body>
-    <canvas class="myCanvas">
+    <canvas class="myCanvas" width="800" height="800">
       <p>Add suitable fallback here.</p>
     </canvas>
 
     <script>
 
-      const canvas = document.querySelector('.myCanvas');
-      const width = canvas.width = window.innerWidth;
-      const height = canvas.height = window.innerHeight;
-      const ctx = canvas.getContext('2d');
+      // const canvas = document.querySelector('.myCanvas');
+      // const width = canvas.width = window.innerWidth;
+      // const height = canvas.height = window.innerHeight;
+      // const ctx = canvas.getContext('2d');
 
-      ctx.fillStyle = 'rgb(0,0,0)';
-      ctx.fillRect(0,0,width,height);
+      // ctx.fillStyle = 'rgb(0,0,0)';
+      // ctx.fillRect(0,0,width,height);
 
       // ctx.fillStyle = 'rgb(255, 0, 0)';
       // ctx.beginPath();
@@ -56,14 +56,256 @@
 
 
 
-      ctx.strokeStyle = 'white';
-// ctx.lineWidth = 1;
-ctx.font = '36px arial';
-ctx.strokeText('Canvas text', 50, 50);
+//       ctx.strokeStyle = 'white';
+// // ctx.lineWidth = 1;
+// ctx.font = '36px arial';
+// ctx.strokeText('Canvas text', 50, 50);
 
-ctx.fillStyle = 'red';
-ctx.font = '48px georgia';
-ctx.fillText('Canvas text', 50, 150);
+// ctx.fillStyle = 'red';
+// ctx.font = '48px georgia';
+// ctx.fillText('Canvas text', 50, 150);
+
+// var image = new Image();
+// image.src = 'firefox.png';
+// image.onload = function() {
+//   // ctx.drawImage(image, 50, 50);
+//   ctx.drawImage(image, 20, 20, 185, 175, 0, 0, 185, 175);
+// }
+
+// ctx.translate(width/2, height/2);
+// function degToRad(degrees) {
+//   return degrees * Math.PI / 180;
+// };
+
+// function rand(min, max) {
+//   return Math.floor(Math.random() * (max-min+1)) + (min);
+// }
+
+// var length = 250;
+// var moveOffset = 20;
+
+// for(var i = 0; i < length; i++) {
+//   ctx.fillStyle = 'rgba(' + (255-length) + ', 0, ' + (255-length) + ', 0.9)';
+//   ctx.beginPath();
+//   ctx.moveTo(moveOffset, moveOffset);
+//   ctx.lineTo(moveOffset+length, moveOffset);
+//   var triHeight = length/2 * Math.tan(degToRad(60));
+//   ctx.lineTo(moveOffset+(length/2), moveOffset+triHeight);
+//   ctx.lineTo(moveOffset, moveOffset);
+//   ctx.fill();
+
+//   length--;
+//   moveOffset += 0.7;
+//   ctx.rotate(degToRad(5));
+// }
+
+
+
+function draw() {
+  var canvas = document.querySelector('.myCanvas');
+  if (canvas.getContext) {
+    var ctx = canvas.getContext('2d');
+
+  //   ctx.beginPath();
+  //   ctx.moveTo(75, 50);
+  //   ctx.lineTo(100, 75);
+  //   ctx.lineTo(100, 25);
+  //   ctx.fill();
+
+  //   ctx.beginPath();
+  //   ctx.arc(75, 75, 50, 0, Math.PI * 2, true); // 绘制
+  //   ctx.moveTo(110, 75);
+  //   ctx.arc(75, 75, 35, 0, Math.PI, false);   // 口(顺时针)
+  //   ctx.moveTo(65, 65);
+  //   ctx.arc(60, 65, 5, 0, Math.PI * 2, true);  // 左眼
+  //   ctx.moveTo(95, 65);
+  //   ctx.arc(90, 65, 5, 0, Math.PI * 2, true);  // 右眼
+  //   ctx.stroke();
+
+  //   ctx.beginPath();
+  // ctx.moveTo(125, 125);
+  // ctx.lineTo(125, 45);
+  // ctx.lineTo(45, 125);
+  // ctx.closePath();
+  // ctx.stroke();
+
+    // for(var i = 0; i < 4; i++){
+    //   for(var j = 0; j < 3; j++){
+    //     ctx.beginPath();
+    //     var x = 25 + j * 50; // x 坐标值
+    //     var y = 25 + i * 50; // y 坐标值
+    //     var radius = 20; // 圆弧半径
+    //     var startAngle = 0; // 开始点
+    //     var endAngle = Math.PI + (Math.PI * j) / 2; // 结束点
+    //     var anticlockwise = i % 2 == 0 ? false : true; // 顺时针或逆时针
+
+    //     ctx.arc(x, y, radius, startAngle, endAngle, anticlockwise);
+
+    //     if (i>1){
+    //       ctx.fill();
+    //     } else {
+    //       ctx.stroke();
+    //     }
+    //   }
+    // }
+
+
+    // // 二次贝塞尔曲线
+    // ctx.beginPath();
+    // ctx.moveTo(75, 25);
+    // ctx.quadraticCurveTo(15, 15, 25, 75);
+    // ctx.quadraticCurveTo(25, 100, 50, 100);
+    // ctx.quadraticCurveTo(50, 120, 30, 125);
+    // ctx.quadraticCurveTo(60, 120, 65, 100);
+    // ctx.quadraticCurveTo(125, 100, 125, 62.5);
+    // ctx.quadraticCurveTo(125, 25, 75, 25);
+    // ctx.stroke();
+
+    //三次贝塞尔曲线
+    ctx.beginPath();
+    // ctx.moveTo(75, 75);
+    // ctx.fillStyle = 'black';
+    // ctx.fillRect(75, 75, 3, 3);
+    // ctx.fillRect(50, 180, 3, 3);
+    // ctx.fillRect(180, 70, 3, 3);
+    // ctx.fillRect(25, 25, 3, 3);
+    // ctx.bezierCurveTo(50, 180, 180, 70, 25, 25);
+    // ctx.stroke(); // 在一条直线上用fill就画不出东西来
+
+
+    // ctx.moveTo(75, 40);
+    // ctx.bezierCurveTo(75, 37, 70, 25, 50, 25);
+    // ctx.bezierCurveTo(20, 25, 20, 62.5, 20, 62.5);
+    // ctx.bezierCurveTo(20, 80, 40, 102, 75, 120);
+    // ctx.bezierCurveTo(110, 102, 130, 80, 130, 62.5);
+    // ctx.bezierCurveTo(130, 62.5, 130, 25, 100, 25);
+    // ctx.bezierCurveTo(85, 25, 75, 37, 75, 40);
+    // ctx.fill();
+
+    // roundedRect(ctx, 12, 12, 150, 150, 15);
+    // roundedRect(ctx, 19, 19, 150, 150, 9);
+    // roundedRect(ctx, 53, 53, 49, 33, 10);
+    // roundedRect(ctx, 53, 119, 49, 16, 6);
+    // roundedRect(ctx, 135, 53, 49, 33, 10);
+    // roundedRect(ctx, 135, 119, 25, 49, 10);
+
+  }
+
+  // 封装的一个用于绘制圆角矩形的函数.
+
+function roundedRect(ctx, x, y, width, height, radius){
+  ctx.beginPath();
+  ctx.moveTo(x, y + radius);
+  ctx.lineTo(x, y + height - radius);
+  ctx.quadraticCurveTo(x, y + height, x + radius, y + height);
+  // ctx.lineTo(x + width - radius, y + height);
+  // ctx.quadraticCurveTo(x + width, y + height, x + width, y + height - radius);
+  // ctx.lineTo(x + width, y + radius);
+  // ctx.quadraticCurveTo(x + width, y, x + width - radius, y);
+  // ctx.lineTo(x + radius, y);
+  // ctx.quadraticCurveTo(x, y, x, y + radius);
+  ctx.stroke();
+}
+
+ // 画背景
+//  ctx.fillStyle = 'rgb(255,221,0)';
+//   ctx.fillRect(0,0,150,37.5);
+//   ctx.fillStyle = 'rgb(102,204,0)';
+//   ctx.fillRect(0,37.5,150,37.5);
+//   ctx.fillStyle = 'rgb(0,153,255)';
+//   ctx.fillRect(0,75,150,37.5);
+//   ctx.fillStyle = 'rgb(255,51,0)';
+//   ctx.fillRect(0,112.5,150,37.5);
+//   // 画半透明矩形
+//   for (var i=0;i<10;i++){
+//     ctx.fillStyle = 'rgba(255,255,255,'+(i+1)/10+')';
+//     for (var j=0;j<4;j++){
+//       ctx.fillRect(5+i*14,5+j*37.5,14,27.5) // 妙啊
+//     }
+//   }
+
+// ctx.clearRect(0,0, canvas.width, canvas.height);
+//   ctx.setLineDash([4, 2]);
+//   ctx.lineDashOffset = -offset;
+//   ctx.strokeRect(10,10, 100, 100);
+
+  // for (var i = 0; i < 10; i++){
+  //   ctx.lineWidth = 1+i;
+  //   ctx.beginPath();
+  //   ctx.moveTo(5+i*14,5);
+  //   ctx.lineTo(5+i*14,140);
+  //   ctx.stroke();
+  // }
+
+
+  // // Create gradients
+  // var lingrad = ctx.createLinearGradient(0,0,0,150);
+  // lingrad.addColorStop(0, '#00ABEB');
+  // lingrad.addColorStop(0.5, '#fff');
+  // lingrad.addColorStop(0.5, '#26C000');
+  // lingrad.addColorStop(1, '#fff');
+
+  // var lingrad2 = ctx.createLinearGradient(0,50,0,95);
+  // lingrad2.addColorStop(0.5, 'yellow');
+  // lingrad2.addColorStop(1, 'gray');
+
+  // // assign gradients to fill and stroke styles
+  // ctx.fillStyle = lingrad;
+  // ctx.strokeStyle = lingrad2;
+  
+  // // draw shapes
+  // ctx.fillRect(10,10,130,130);
+  // ctx.strokeRect(50,50,50,50);
+
+
+  // 创建渐变
+  var radgrad = ctx.createRadialGradient(45,45,10,52,50,30);
+  radgrad.addColorStop(0, '#A7D30C');
+  radgrad.addColorStop(0.9, '#019F62');
+  radgrad.addColorStop(1, 'rgba(1,159,98,0)');
+  
+  var radgrad2 = ctx.createRadialGradient(105,105,20,112,120,50);
+  radgrad2.addColorStop(0, '#FF5F98');
+  radgrad2.addColorStop(0.1, 'red');
+  radgrad2.addColorStop(1, 'rgba(255,1,136,0)');
+
+  var radgrad3 = ctx.createRadialGradient(95,15,15,102,20,40);
+  radgrad3.addColorStop(0, '#00C9FF');
+  radgrad3.addColorStop(0.8, '#00B5E2');
+  radgrad3.addColorStop(1, 'rgba(0,201,255,0)');
+
+  var radgrad4 = ctx.createRadialGradient(0,150,50,0,140,90);
+  radgrad4.addColorStop(0, '#F4F201');
+  radgrad4.addColorStop(0.8, '#E4C700');
+  radgrad4.addColorStop(1, 'rgba(228,199,0,0)');
+  
+  // 画图形
+  // ctx.fillStyle = radgrad4;
+  // ctx.fillRect(0,0,150,150);
+  ctx.fillStyle = radgrad3;
+  ctx.fillRect(0,0,150,150);
+  ctx.fillStyle = radgrad2;
+  ctx.fillRect(0,0,150,150);
+  ctx.fillStyle = radgrad;
+  ctx.fillRect(0,0,150,150);
+  ctx.fillStyle = 'black';
+  ctx.fillRect(45,45,3,3);
+  ctx.fillRect(52,50,3,3);
+  ctx.stroke();
+
+}
+var offset = 0;
+draw()
+// function march() { // 妙啊
+//   offset++;
+//   if (offset > 16) {
+//     offset = 0;
+//   }
+//   draw();
+//   setTimeout(march, 1000);
+// }
+
+// march();
     </script>
   </body>
 </html>
