@@ -14,6 +14,10 @@
     <canvas class="myCanvas">
       <p>Add suitable fallback here.</p>
     </canvas>
+    <div style="display:none;">
+      <img id="source" src="https://mdn.mozillademos.org/files/5397/rhino.jpg" width="300" height="227">
+      <img id="frame" src="https://mdn.mozillademos.org/files/242/Canvas_picture_frame.png" width="132" height="150">
+    </div>
 
     <script>
 
@@ -22,8 +26,8 @@
       const height = canvas.height = window.innerHeight;
       const ctx = canvas.getContext('2d');
 
-      ctx.fillStyle = 'rgb(0,0,0)';
-      ctx.fillRect(0,0,width,height);
+      // ctx.fillStyle = 'rgb(0,0,0)';
+      // ctx.fillRect(0,0,width,height);
 
       // ctx.fillStyle = 'rgb(255, 0, 0)';
       // ctx.beginPath();
@@ -56,14 +60,102 @@
 
 
 
-      ctx.strokeStyle = 'white';
-// ctx.lineWidth = 1;
-ctx.font = '36px arial';
-ctx.strokeText('Canvas text', 50, 50);
+//       ctx.strokeStyle = 'white';
+// // ctx.lineWidth = 1;
+// ctx.font = '36px arial';
+// ctx.strokeText('Canvas text', 50, 50);
 
-ctx.fillStyle = 'red';
-ctx.font = '48px georgia';
-ctx.fillText('Canvas text', 50, 150);
+// ctx.fillStyle = 'red';
+// ctx.font = '48px georgia';
+// ctx.fillText('Canvas text', 50, 150);
+
+ // 创建渐变
+ var radgrad = ctx.createRadialGradient(45,45,10,52,50,30);
+  radgrad.addColorStop(0, 'green');
+  radgrad.addColorStop(0.3, 'yellow');
+  radgrad.addColorStop(1, 'pink');
+  
+  var radgrad2 = ctx.createRadialGradient(105,105,20,112,120,50);
+  radgrad2.addColorStop(0, '#FF5F98');
+  radgrad2.addColorStop(0.75, '#FF0188');
+  radgrad2.addColorStop(1, 'rgba(255,1,136,0)');
+
+  var radgrad3 = ctx.createRadialGradient(95,15,15,102,20,40);
+  radgrad3.addColorStop(0, '#00C9FF');
+  radgrad3.addColorStop(0.8, '#00B5E2');
+  radgrad3.addColorStop(1, 'rgba(0,201,255,0)');
+
+  var radgrad4 = ctx.createRadialGradient(0,150,50,0,140,90);
+  radgrad4.addColorStop(0, '#F4F201');
+  radgrad4.addColorStop(0.8, '#E4C700');
+  radgrad4.addColorStop(1, 'rgba(228,199,0,0)');
+  
+  // 画图形
+  // ctx.fillStyle = radgrad4;
+  // ctx.fillRect(0,0,150,150);
+  // ctx.fillStyle = radgrad3;
+  // ctx.fillRect(0,0,150,150);
+  // ctx.fillStyle = radgrad2;
+  // ctx.fillRect(0,0,150,150);
+  // ctx.fillStyle = radgrad;
+  // ctx.fillRect(0,0,150,150);
+  // ctx.fillStyle = 'black';
+  // ctx.fillRect(45,45,3,3);
+  // ctx.fillRect(52,50,3,3);
+
+  // // 创建新 image 对象，用作图案
+  // var img = new Image();
+  // img.src = 'https://mdn.mozillademos.org/files/222/Canvas_createpattern.png';
+  // img.onload = function() {
+  //   // 创建图案
+  //   var ptrn = ctx.createPattern(img, 'repeat');
+  //   ctx.fillStyle = ptrn;
+  //   ctx.fillRect(0, 0, 150, 150);
+  // }
+
+  // ctx.shadowOffsetX = 12;
+  // ctx.shadowOffsetY = 12;
+  // ctx.shadowBlur = 2;
+  // ctx.shadowColor = "pink";
+ 
+  // ctx.font = "20px Times New Roman";
+  // ctx.fillStyle = "green";
+  // ctx.fillText("Sample String", 15, 30);
+  
+  // console.log(ctx.measureText("Sample String").width)
+
+  var img = new Image();
+    // img.onload = function(){
+    //   ctx.drawImage(img,0,0);
+    //   ctx.beginPath();
+    //   ctx.moveTo(30,96);
+    //   ctx.lineTo(70,66);
+    //   ctx.lineTo(103,76);
+    //   ctx.lineTo(170,15);
+    //   ctx.stroke();
+    // }
+    // img.src = 'https://mdn.mozillademos.org/files/5395/backdrop.png';
+
+    img.onload = function(){
+    // for (var i=0;i<4;i++){
+    //   for (var j=0;j<3;j++){
+        // ctx.drawImage(img,j*50,i*38,55,55);
+        // ctx.drawImage(img,33,71,104,124,121,120,187,104);
+  // ctx.drawImage(document.getElementById('source'),
+  //               33,71,104,124,21,20,87,104);
+                // ctx.drawImage(document.getElementById('frame'),90,90);
+      // }
+    // }
+  };
+  img.src = 'https://mdn.mozillademos.org/files/5397/rhino.jpg';
+
+  // Draw slice
+  setTimeout(() => {
+    ctx.drawImage(document.getElementById('source'),
+                  33,71,104,124,21,20,87,104);
+    // // Draw frame
+    ctx.drawImage(document.getElementById('frame'),0,0);
+  }, 2000) // 要加setTimeout！！！！
     </script>
   </body>
 </html>
