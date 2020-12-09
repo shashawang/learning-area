@@ -359,23 +359,77 @@ function roundedRect(ctx, x, y, width, height, radius){
   // ctx.font = '48px serif';
   // ctx.fillText('MDN', -135, 120);
 
-  var sin = Math.sin(Math.PI/6);
-  var cos = Math.cos(Math.PI/6);
-  ctx.translate(100, 100);
-  var c = 0;
-  for (var i=0; i <= 12; i++) {
-    c = Math.floor(255 / 12 * i);
-    ctx.fillStyle = "rgb(" + c + "," + c + "," + c + ")";
-    ctx.fillRect(0, 0, 100, 10);
-    // ctx.transform(cos, sin, -sin, cos, 0, 0);
-  }
-  // ctx.setTransform(-1, 0, 0, 1, 100, 100);
-  ctx.fillStyle = "rgba(255, 128, 255, 0.5)";
-  ctx.fillRect(0, 50, 100, 100);
+  // var sin = Math.sin(Math.PI/6);
+  // var cos = Math.cos(Math.PI/6);
+  // ctx.translate(100, 100);
+  // var c = 0;
+  // for (var i=0; i <= 12; i++) {
+  //   c = Math.floor(255 / 12 * i);
+  //   ctx.fillStyle = "rgb(" + c + "," + c + "," + c + ")";
+  //   ctx.fillRect(0, 0, 100, 10);
+  //   // ctx.transform(cos, sin, -sin, cos, 0, 0);
+  // }
+  // // ctx.setTransform(-1, 0, 0, 1, 100, 100); // 缩放1、倾斜0 正数往第四象限 负数反方向；先竖直方向的值其实也是x轴、移动，1是45度，缩放也是整个画布缩放
+  // ctx.fillStyle = "rgba(255, 128, 255, 0.5)";
+  // ctx.fillRect(0, 0, 100, 100);
+  // ctx.transform(cos, sin, -sin, cos, 0, 0);
+  // ctx.fillRect(0, 0, 100, 100);
+  // ctx.transform(cos, sin, -sin, cos, 0, 0);
+  // ctx.fillStyle='black'
+  // ctx.fillRect(0,60,5,5)
+  // ctx.fillRect(30,0,5,5)
+  // ctx.stroke()
+
+
+  ctx.fillRect(0,0,150,150);
+  ctx.translate(75,75);
+
+  // Create a circular clipping path
+  ctx.beginPath();
+  ctx.arc(0,0,60,0,Math.PI*2,true);
+  ctx.clip(); // 剪完之后就只能在剪好的范围里画东西
+
+  // draw background
+  var lingrad = ctx.createLinearGradient(0,-75,0,75);
+  lingrad.addColorStop(0, '#232256');
+  lingrad.addColorStop(1, '#143778');
+  
+  ctx.fillStyle = lingrad;
+  ctx.fillRect(-75,-75,150,150);
+
+  // // draw stars
+  // for (var j=1;j<50;j++){
+  //   ctx.save();
+    ctx.fillStyle = '#fff';
+  //   ctx.translate(75-Math.floor(Math.random()*150),
+  //                 75-Math.floor(Math.random()*150));
+    drawStar(ctx,20);
+    // drawStar(ctx,Math.floor(Math.random()*4)+2);
+  //   ctx.restore();
+  // }
 
 }
 var offset = 0;
 draw()
+function drawStar(ctx,r){
+  ctx.save();
+  ctx.beginPath()
+  ctx.moveTo(r,0);
+  ctx.fillRect(r, 0, 3,3)
+  for (var i=0;i<9;i++){
+    ctx.rotate(Math.PI/5);
+    if(i%2 == 0) {
+      ctx.fillRect((r/0.525731)*0.200811, 0, 3,3)
+      ctx.lineTo((r/0.525731)*0.200811,0);
+    } else {
+      ctx.fillRect(r, 0, 3,3)
+      ctx.lineTo(r,0);
+    }
+  }
+  ctx.closePath();
+  ctx.fill();
+  ctx.restore();
+}
 // function march() { // 妙啊
 //   offset++;
 //   if (offset > 16) {

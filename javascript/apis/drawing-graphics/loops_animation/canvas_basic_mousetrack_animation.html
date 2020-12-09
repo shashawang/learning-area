@@ -17,7 +17,6 @@
             window.onmousemove = function(e) {
                 m.x = e.clientX;
                 m.y = e.clientY;
-
             }
             function gc() {
                 var s = "0123456789ABCDEF";
@@ -30,6 +29,10 @@
             var a = [];
             window.onload = function myfunction() {
                 cn = document.getElementById('cw');
+                cn.addEventListener("touchmove", function(e) {
+                    m.x = e.clientX;
+                    m.y = e.clientY;
+                }, false);
                 c = cn.getContext('2d');
 
                 for (var i = 0; i < 10; i++) {
@@ -47,9 +50,7 @@
                 anim()
             }
             window.onresize = function() {
-
                 resize();
-
             }
             function resize() {
                 cn.height = innerHeight;
@@ -59,7 +60,6 @@
                     var x = Math.random() * (innerWidth - 2 * r) + r;
                     var y = Math.random() * (innerHeight - 2 * r) + r;
                     a[i] = new ob(innerWidth / 2,innerHeight / 2,4,gc(),Math.random() * 200 + 20,0.02);
-
                 }
                 //  a[0] = new ob(innerWidth / 2, innerHeight / 2, 40, "red", 0.05, 0.05);
                 //a[0].dr();
@@ -88,18 +88,21 @@
                     c.strokeStyle = this.cc;
                     c.moveTo(ls.x, ls.y);
                     c.lineTo(this.x, this.y);
+                    console.log('this.x, this.y: ', this.x, this.y, 'ls.x, ls.y', ls.x, ls.y);
                     c.stroke();
                     c.closePath();
-
                 }
             }
             function anim() {
-                requestAnimationFrame(anim);
+                // requestAnimationFrame(anim);
                 c.fillStyle = "rgba(0,0,0,0.05)";
                 c.fillRect(0, 0, cn.width, cn.height);
-                a.forEach(function(e, i) {
-                    e.dr();
-                });
+                // a.forEach(function(e, i) {
+                //     e.dr();
+                // });
+                a[0].dr();
+                a[1].dr();
+                a[2].dr();
 
             }
         </script>
