@@ -52,9 +52,9 @@
       .banner:hover {
           opacity: 1
       }
-
+      /* ？？？？？？？？ */
       div#selector>div {
-          flex-basis: 30%
+          flex-basis: 30% 
       }
 
       @keyframes diss {
@@ -215,7 +215,14 @@
         fw = 60,
         fa = [];
     window.onkeydown = function (t) {
+        console.log('t: ', t);
         var e = t.key;
-        (e.search("Arrow") > -1 || "1" == e) && (d = t.key), "i" != e && "I" != e || (console.log("inc"), fw -= 10), "d" != e && "D" != e || (console.log("dec"), fw += 10)
+        (e.search("Arrow") > -1 || "1" == e) 
+        && 
+        (d = t.key), 
+        "i" != e && "I" != e || (console.log("inc"), 
+        fw -= 10), 
+        "d" != e && "D" != e || (console.log("dec"), fw += 10)
     }, init();
+    console.log(c.createImageData(100, 100));
 </script>
