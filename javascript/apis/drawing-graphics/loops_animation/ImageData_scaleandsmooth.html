@@ -24,6 +24,8 @@
 
       function draw(img) {
         var canvas = document.getElementById('canvas');
+        var dataURL = canvas.toDataURL();
+        console.log('dataURL: ', dataURL);
         var ctx = canvas.getContext('2d');
         ctx.drawImage(img, 0, 0);
         img.style.display = 'none';
